@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import PropTypes, { object } from 'prop-types';
 
-const Book = (book) => {
+const Book = book => {
   const { id, title, category } = book;
   return (
     <div>
@@ -11,6 +11,6 @@ const Book = (book) => {
       <h3>{category}</h3>
     </div>
   );
-}
+};
 
 export default Book;
