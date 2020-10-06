@@ -1,4 +1,3 @@
-import { table } from 'console';
 import React from 'react';
 import Book from './book';
 
@@ -13,15 +12,14 @@ const booksList = () => {
   const { books } = this.state;
 
   let listOfBooks;
-  books.forEach(book => {
-    <tr>
-      <td>{book}</td>
-    </tr>;
-  });
 
   return (
     <table>
-
+      {books.forEach(book => {
+        <tr>
+          <Book book={book} />
+        </tr>;
+      })}
     </table>
   );
 };
