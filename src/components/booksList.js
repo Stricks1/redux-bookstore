@@ -6,7 +6,8 @@ const mapStateToProps = state => ({
   state,
 });
 
-const booksList = () => {
+const booksList = ({ state }) => {
+  console.log(state);
   const { books } = this.state;
 
   return (
