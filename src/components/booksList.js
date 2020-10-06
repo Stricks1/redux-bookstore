@@ -3,20 +3,17 @@ import { connect } from 'react-redux';
 import Book from './book';
 
 const mapStateToProps = state => ({
-  state,
+  books: state.books,
 });
 
-const booksList = ({ state }) => {
-  console.log(state);
-  const { books } = this.state;
-
-  return (
-    <table>
+const booksList = ({ books }) => (
+  <table>
+    <tbody>
       {
-        books.forEach(book => (<Book key={book.id} book={book} />))
+        books.map(book => (<Book key={book.id} book={book} />))
       }
-    </table>
-  );
-};
+    </tbody>
+  </table>
+);
 
 export default connect(mapStateToProps)(booksList);

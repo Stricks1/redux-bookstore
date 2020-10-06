@@ -8,8 +8,13 @@ import reducer from './reducers/books';
 const bookTest = {
   books: [
     {
+      id: 1,
+      title: 'some Book',
+      category: 'Action',
+    },
+    {
       id: 2,
-      title: 'something',
+      title: 'another Book',
       category: 'Action',
     },
   ],
