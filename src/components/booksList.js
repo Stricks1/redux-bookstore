@@ -1,27 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Book from './book';
 
-/*
-Implement the BooksList component
-It should display the books as an html table.
-Each row should contain Book ID, title and category.
-It should connect to the Redux store and fetch the books from the state.
-*/
+const mapStateToProps = state => ({
+  state,
+});
 
 const booksList = () => {
   const { books } = this.state;
 
-  let listOfBooks;
-
   return (
     <table>
-      {books.forEach(book => {
-        <tr>
-          <Book book={book} />
-        </tr>;
-      })}
+      {
+        books.forEach(book => (<Book key={book.id} book={book} />))
+      }
     </table>
   );
 };
 
-export default booksList;
+export default connect(mapStateToProps)(booksList);
