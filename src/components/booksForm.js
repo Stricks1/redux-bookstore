@@ -2,14 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CreateBook from '../actions';
+import Categories from '../helper/constants';
 
 const BooksForm = ({ createBook }) => {
   let title;
+  let category;
+
   return (
     <form
       onSubmit={e => {
         e.preventDefault();
-        createBook({ id: 9, title: title.value, category: 'Horror' });
+        createBook(
+          {
+            id: parseInt(100000 * Math.random(), 10),
+            title: title.value,
+            category: category.value,
+          },
+        );
       }}
     >
       <div>
@@ -21,14 +30,12 @@ const BooksForm = ({ createBook }) => {
       <div>
         <label htmlFor="selCategory">
           Category
-          <select name="selCategory" id="selCategory">
-            <option value="1">Action</option>
-            <option value="2">Biography</option>
-            <option value="3">History</option>
-            <option value="4">Horror</option>
-            <option value="5">Kids</option>
-            <option value="6">Learning</option>
-            <option value="7">Sci-Fi</option>
+          <select name="selCategory" id="selCategory" ref={select => { (category = select); }}>
+            {
+              Categories.map(item => (
+                <option key={item} value={item}>{item}</option>
+              ))
+            }
           </select>
         </label>
       </div>

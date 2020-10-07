@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Book = ({ book }) => {
   const { id, title, category } = book;

@@ -8,7 +8,7 @@ const bookTest = {
     {
       id: 2,
       title: 'another Book',
-      category: 'another Action',
+      category: 'Horror',
     },
   ],
 };
