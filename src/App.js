@@ -15,7 +15,7 @@ const bookTest = {
     {
       id: 2,
       title: 'another Book',
-      category: 'Action',
+      category: 'another Action',
     },
   ],
 };
@@ -27,6 +27,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <BooksList />
+        <BooksForm />
       </div>
     </Provider>
   );
