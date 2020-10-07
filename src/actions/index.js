@@ -5,10 +5,10 @@ const CreateBook = book => (
   }
 );
 
-const RemoveBook = bookId => (
+const RemoveBook = book => (
   {
     type: 'REMOVE_BOOK',
-    bookId,
+    book,
   }
 );
 

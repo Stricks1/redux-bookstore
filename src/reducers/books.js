@@ -13,7 +13,7 @@ const bookTest = {
   ],
 };
 
-function reducer(state = bookTest, action) {
+function books(state = bookTest, action) {
   switch (action.type) {
     case 'CREATE_BOOK':
       return { books: [...state.books, action.book] };
@@ -25,4 +25,4 @@ function reducer(state = bookTest, action) {
   }
 }
 
-export default reducer;
+export default books;
