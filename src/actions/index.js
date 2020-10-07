@@ -2,6 +2,14 @@ const CreateBook = book => (
   {
     type: 'CREATE_BOOK',
     book,
-  });
+  }
+);
 
-export default CreateBook;
+const RemoveBook = bookId => (
+  {
+    type: 'REMOVE_BOOK',
+    bookId,
+  }
+);
+
+export { CreateBook, RemoveBook };

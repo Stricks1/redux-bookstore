@@ -19,7 +19,7 @@ function reducer(state = bookTest, action) {
       return { books: [...state.books, action.book] };
 
     case 'REMOVE_BOOK':
-      return state;
+      return { books: [...state.books.filter(item => item.id !== action.book.id)] };
     default:
       return state;
   }

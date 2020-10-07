@@ -6,6 +6,9 @@ const Book = ({ book }) => {
   const { id, title, category } = book;
   return (
     <tr>
+      <td>
+        <button type="button">X</button>
+      </td>
       <td>{id}</td>
       <td>{title}</td>
       <td>{category}</td>

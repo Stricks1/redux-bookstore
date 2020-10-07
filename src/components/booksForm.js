@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import CreateBook from '../actions';
+import { CreateBook } from '../actions';
 import Categories from '../helper/constants';
 
 const BooksForm = ({ createBook }) => {
