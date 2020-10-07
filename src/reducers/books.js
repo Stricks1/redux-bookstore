@@ -1,8 +1,3 @@
-import React from 'react';
-import '../index.css';
-import PropTypes, { object } from 'prop-types';
-
-/*
 const bookTest = {
   books: [
     {
@@ -16,12 +11,12 @@ const bookTest = {
       category: 'another Action',
     },
   ],
-}*/
+};
 
-function reducer(state = [], action) {
+function reducer(state = bookTest, action) {
   switch (action.type) {
     case 'CREATE_BOOK':
-      return [...state, action.book];
+      return { books: [...state.books, action.book] };
 
     case 'REMOVE_BOOK':
       return state;
