@@ -11,19 +11,14 @@ const mapDispatchToProps = dispatch => ({
   removeBook: book => dispatch(RemoveBook(book)),
 });
 
-const booksList = ({ books, removeBook }) => {
-  const clickRemove = book => {
-    removeBook(book);
-  };
-  return (
-    <table>
-      <tbody>
-        {
-          books.map(book => (<Book key={book.id} book={book} removeBook={clickRemove} />))
-        }
-      </tbody>
-    </table>
-  );
-};
+const booksList = ({ books }) => (
+  <table>
+    <tbody>
+      {
+        books.map(book => (<Book key={book.id} book={book} />))
+      }
+    </tbody>
+  </table>
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(booksList);
