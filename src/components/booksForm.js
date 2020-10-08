@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import { CreateBook } from '../actions';
 import Categories from '../helper/constants';
 
@@ -8,8 +9,8 @@ class BooksForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      category: '',
+      title: React.createRef(),
+      category: React.createRef(),
     };
     this.title = '';
     this.category = '';
@@ -39,14 +40,12 @@ class BooksForm extends Component {
 
     createBook(
       {
-        id: parseInt(100000 * Math.random(), 10),
+        id: shortid.generate().toUpperCase(),
         title,
         category,
       },
     );
-
-    this.title.value = '';
-    this.category.value = 'Select Category';
+    e.target.reset();
   }
 
   render() {
