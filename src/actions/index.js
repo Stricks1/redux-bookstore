@@ -12,4 +12,11 @@ const RemoveBook = book => (
   }
 );
 
-export { CreateBook, RemoveBook };
+const ChangeFilter = category => (
+  {
+    type: 'CHANGE_FILTER ',
+    category,
+  }
+);
+
+export { CreateBook, RemoveBook, ChangeFilter };
