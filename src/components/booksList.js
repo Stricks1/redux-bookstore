@@ -30,7 +30,8 @@ const booksList = ({
       <table>
         <tbody>
           {
-            books.map(book => (<Book key={book.id} book={book} remove={handleRemoveBook} />)).filter(item => (item.props.book.category === filter || filter === 'All'))
+            books.map(book => (<Book key={book.id} book={book} remove={handleRemoveBook} />))
+              .filter(item => (item.props.book.category === filter || !filter))
           }
         </tbody>
       </table>

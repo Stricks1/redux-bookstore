@@ -20,7 +20,7 @@ const bookTest = {
       category: 'Horror',
     },
   ],
-  filter: 'All',
+  filter: null,
 };
 
 const store = createStore(combinedReducer, bookTest);
