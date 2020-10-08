@@ -14,6 +14,7 @@ class BooksForm extends Component {
     this.title = '';
     this.category = '';
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange() {
@@ -23,22 +24,34 @@ class BooksForm extends Component {
     });
   }
 
-  render() {
+  handleSubmit(e) {
+    e.preventDefault();
+
     const { title, category } = this.state;
     const { createBook } = this.props;
+
+    if (title.trim().length === 0) {
+      return;
+    }
+    if (category.includes('Select')) {
+      return;
+    }
+
+    createBook(
+      {
+        id: parseInt(100000 * Math.random(), 10),
+        title,
+        category,
+      },
+    );
+
+    this.title.value = '';
+    this.category.value = 'Select Category';
+  }
+
+  render() {
     return (
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          createBook(
-            {
-              id: parseInt(100000 * Math.random(), 10),
-              title,
-              category,
-            },
-          );
-        }}
-      >
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="txtTitle">
             Title
@@ -50,10 +63,10 @@ class BooksForm extends Component {
             Category
             <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }}>
               {
-              Categories.map(item => (
-                <option key={item} value={item}>{item}</option>
-              ))
-            }
+                Categories.map(item => (
+                  <option key={item} value={item}>{item}</option>
+                ))
+              }
             </select>
           </label>
         </div>
