@@ -12,13 +12,15 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const booksList = ({ books, removeBook }) => {
-  console.log(removeBook);
+  const removeClick = book => {
+    removeBook(book);
+  };
 
   return (
     <table>
       <tbody>
         {
-          books.map(book => (<Book key={book.id} book={book} />))
+          books.map(book => (<Book key={book.id} book={book} remove={removeClick} />))
         }
       </tbody>
     </table>
