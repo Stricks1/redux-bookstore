@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { CreateBook } from '../actions';
-import Categories from '../helper/constants';
+import { CATEGORIES } from '../helper/constants';
 
 class BooksForm extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class BooksForm extends Component {
             Category
             <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }}>
               {
-                Categories.map(item => (
+                CATEGORIES.map(item => (
                   <option key={item} value={item}>{item}</option>
                 ))
               }

@@ -1,29 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RemoveBook } from '../actions';
+import { RemoveBook, ChangeFilter } from '../actions';
 import Book from './book';
+import CategoryFilter from './CategoryFilter';
 
 const mapStateToProps = state => ({
   books: state.books,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({
   removeBook: book => dispatch(RemoveBook(book)),
+  changeFilter: category => dispatch(ChangeFilter(category)),
 });
 
-const booksList = ({ books, removeBook }) => {
+const booksList = ({
+  books, filter, removeBook, changeFilter,
+}) => {
   const handleRemoveBook = book => {
     removeBook(book);
   };
+  const handleFilterChange = category => {
+    changeFilter(category);
+  };
 
   return (
-    <table>
-      <tbody>
-        {
-          books.map(book => (<Book key={book.id} book={book} remove={handleRemoveBook} />))
-        }
-      </tbody>
-    </table>
+    <>
+      <CategoryFilter changeFilter={handleFilterChange} />
+      <table>
+        <tbody>
+          {
+            books.map(book => (<Book key={book.id} book={book} remove={handleRemoveBook} />)).filter(item => (item.props.book.category === filter || filter === 'All'))
+          }
+        </tbody>
+      </table>
+    </>
   );
 };
 
