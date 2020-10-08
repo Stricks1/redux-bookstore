@@ -3,18 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import shortid from 'shortid';
 import App from './App';
 import combinedReducer from './reducers';
 
 const bookTest = {
   books: [
     {
-      id: 1,
+      id: shortid.generate().toUpperCase(),
       title: 'some Book',
       category: 'Action',
     },
     {
-      id: 2,
+      id: shortid.generate().toUpperCase(),
       title: 'another Book',
       category: 'Horror',
     },

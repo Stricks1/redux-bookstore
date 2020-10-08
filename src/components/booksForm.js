@@ -1,52 +1,83 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import { CreateBook } from '../actions';
 import Categories from '../helper/constants';
 
-const BooksForm = ({ createBook }) => {
-  let title;
-  let category;
+class BooksForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      category: '',
+    };
+    this.title = React.createRef();
+    this.category = React.createRef();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-  return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        createBook(
-          {
-            id: parseInt(100000 * Math.random(), 10),
-            title: title.value,
-            category: category.value,
-          },
-        );
-      }}
-    >
-      <div>
-        <label htmlFor="txtTitle">
-          Title
-          <input type="text" id="txtTitle" name="txtTitle" ref={input => { (title = input); }} />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="selCategory">
-          Category
-          <select name="selCategory" id="selCategory" ref={select => { (category = select); }}>
-            {
-              Categories.map(item => (
-                <option key={item} value={item}>{item}</option>
-              ))
-            }
-          </select>
-        </label>
-      </div>
-      <div>
-        <button type="submit">
-          Add Book
-        </button>
-      </div>
-    </form>
-  );
-};
+  handleChange() {
+    this.setState({
+      title: this.title.value,
+      category: this.category.value,
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const { title, category } = this.state;
+    const { createBook } = this.props;
+
+    if (title.trim().length === 0) {
+      return;
+    }
+    if (category.includes('Select')) {
+      return;
+    }
+
+    createBook(
+      {
+        id: shortid.generate().toUpperCase(),
+        title,
+        category,
+      },
+    );
+    e.target.reset();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <div>
+          <label htmlFor="txtTitle">
+            Title
+            <input type="text" id="txtTitle" name="txtTitle" onChange={this.handleChange} ref={input => { (this.title = input); }} />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="selCategory">
+            Category
+            <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }}>
+              {
+                Categories.map(item => (
+                  <option key={item} value={item}>{item}</option>
+                ))
+              }
+            </select>
+          </label>
+        </div>
+        <div>
+          <button type="submit">
+            Add Book
+          </button>
+        </div>
+      </form>
+    );
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(CreateBook(book)),
