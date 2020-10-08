@@ -9,11 +9,11 @@ class BooksForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: React.createRef(),
-      category: React.createRef(),
+      title: '',
+      category: '',
     };
-    this.title = '';
-    this.category = '';
+    this.title = React.createRef();
+    this.category = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
