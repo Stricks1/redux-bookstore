@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { CreateBook } from '../actions';
-import { CATEGORIES } from '../helper/constants';
+import CATEGORIES from '../helper/constants';
 
 class BooksForm extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class BooksForm extends Component {
     e.preventDefault();
 
     const { title, category } = this.state;
-    const { createBook } = this.props;
+    const { CreateBook } = this.props;
 
     if (title.trim().length === 0) {
       return;
@@ -38,7 +38,7 @@ class BooksForm extends Component {
       return;
     }
 
-    createBook(
+    CreateBook(
       {
         id: shortid.generate().toUpperCase(),
         title,
@@ -62,7 +62,7 @@ class BooksForm extends Component {
             Category
             <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }}>
               {
-                CATEGORIES.map(item => (
+                ['Select Category', ...CATEGORIES].map(item => (
                   <option key={item} value={item}>{item}</option>
                 ))
               }
@@ -79,12 +79,12 @@ class BooksForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  createBook: book => dispatch(CreateBook(book)),
-});
+const mapDispatchToProps = {
+  CreateBook,
+};
 
 BooksForm.propTypes = {
-  createBook: PropTypes.func.isRequired,
+  CreateBook: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(BooksForm);

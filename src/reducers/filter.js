@@ -1,9 +1,8 @@
-function filter(state = null, action) {
+import { CHANGE_FILTER } from '../actions';
+
+function filter(state = 'All', action) {
   switch (action.type) {
-    case 'CHANGE_FILTER ':
-      if (action.category === 'All') {
-        return null;
-      }
+    case CHANGE_FILTER:
       return action.category;
     default:
       return state;
