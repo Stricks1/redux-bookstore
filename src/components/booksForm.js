@@ -50,17 +50,16 @@ class BooksForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="d-flex-row-end">
         <div>
-          <label htmlFor="txtTitle">
-            Title
-            <input type="text" id="txtTitle" name="txtTitle" onChange={this.handleChange} ref={input => { (this.title = input); }} className="form-input" />
+          <label htmlFor="txtTitle" className="form-label">
+            ADD NEW BOOK
+            <input type="text" id="txtTitle" name="txtTitle" onChange={this.handleChange} ref={input => { (this.title = input); }} className="form-input" placeholder="Book title" />
           </label>
         </div>
         <div>
-          <label htmlFor="selCategory">
-            Category
-            <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }} className="form-input">
+          <label htmlFor="selCategory" className="d-flex-end">
+            <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }} className="form-select">
               {
                 ['Select Category', ...CATEGORIES].map(item => (
                   <option key={item} value={item}>{item}</option>
