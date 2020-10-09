@@ -50,7 +50,7 @@ class BooksForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="d-flex-row-end">
+      <form onSubmit={this.handleSubmit} className="form-panel d-flex-row-end">
         <div>
           <label htmlFor="txtTitle" className="form-label">
             ADD NEW BOOK

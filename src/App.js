@@ -6,9 +6,11 @@ import './index.css';
 function App() {
   return (
     <div className="App">
-      <BooksList />
-      <hr className="line" />
-      <BooksForm />
+      <div className="d-flex-column-center">
+        <BooksList />
+        <hr className="line" />
+        <BooksForm />
+      </div>
     </div>
   );
 }
