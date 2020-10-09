@@ -50,12 +50,10 @@ code {
 .oval-1 {
   width: 68px;
   height: 68px;
-  border-style: solid;
-  border-radius: 50%;
-  border-width: 5px;
-  border-image-source: linear-gradient(to bottom, var(--medium-blue), var(--dodger-blue));
-  border-image-slice: 1;
   margin-right: 20px;
+  background-image: url('img/circle.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header-panel {
@@ -92,7 +90,6 @@ code {
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 1px;
-  text-overflow: '';
 }
 
 .filter-logo-user {  
@@ -121,8 +118,7 @@ code {
 
 .form-panel {
   width: 1200px;    
-  background-color: transparent;
-  padding-left: 27px;
+  background-color: transparent;  
 }
 
 .category {
@@ -235,7 +231,9 @@ code {
 
 .line {
   width: 1200px;  
-  border: solid 2px #e8e8e8;
+  border: solid 1px #e8e8e8;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .form-input {

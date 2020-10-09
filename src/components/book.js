@@ -22,7 +22,7 @@ const Book = ({ book, remove }) => {
         <div className="d-flex-row-center complete-container">
           <div className="oval-1" />
           <div className="d-flex-column">
-            <span className="perc-book">64%</span>
+            <span className="perc-book">78%</span>
             <span className="span-book-c">Completed</span>
           </div>
         </div>
