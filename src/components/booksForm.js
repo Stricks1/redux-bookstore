@@ -54,13 +54,13 @@ class BooksForm extends Component {
         <div>
           <label htmlFor="txtTitle">
             Title
-            <input type="text" id="txtTitle" name="txtTitle" onChange={this.handleChange} ref={input => { (this.title = input); }} />
+            <input type="text" id="txtTitle" name="txtTitle" onChange={this.handleChange} ref={input => { (this.title = input); }} className="form-input" />
           </label>
         </div>
         <div>
           <label htmlFor="selCategory">
             Category
-            <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }}>
+            <select name="selCategory" id="selCategory" onChange={this.handleChange} ref={select => { (this.category = select); }} className="form-input">
               {
                 ['Select Category', ...CATEGORIES].map(item => (
                   <option key={item} value={item}>{item}</option>
@@ -70,7 +70,7 @@ class BooksForm extends Component {
           </label>
         </div>
         <div>
-          <button type="submit">
+          <button type="submit" className="add-button">
             Add Book
           </button>
         </div>

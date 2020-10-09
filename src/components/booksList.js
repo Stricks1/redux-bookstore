@@ -27,14 +27,10 @@ const booksList = ({
   return (
     <>
       <CategoryFilter changeFilter={handleFilterChange} />
-      <table>
-        <tbody>
-          {
-            books.map(book => (<Book key={book.id} book={book} remove={handleRemoveBook} />))
-              .filter(item => (item.props.book.category === filter || filter === 'All'))
-          }
-        </tbody>
-      </table>
+      {
+        books.map(book => (<Book key={book.id} book={book} remove={handleRemoveBook} />))
+          .filter(item => (item.props.book.category === filter || filter === 'All'))
+      }
     </>
   );
 };
