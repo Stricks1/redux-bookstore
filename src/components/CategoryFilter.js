@@ -5,13 +5,13 @@ import CATEGORIES from '../helper/constants';
 const CategoryFilter = ({ changeFilter }) => (
   <div className="header-panel">
     <div className="filter-logo-user">
-      <div>
+      <div className="d-flex-row-center">
         <span className="logo">
           Bookstore CMS
         </span>
-        <label htmlFor="selCategory">
+        <label htmlFor="selCategory" className="d-flex-row-end filter-label">
           BOOKS
-          <select name="selCategory" id="selCategory" onChange={e => changeFilter(e.target.value)}>
+          <select name="selCategory" id="selCategory" className="filter-select" onChange={e => changeFilter(e.target.value)}>
             {
               ['All', ...CATEGORIES].map(item => (
                 <option key={item} value={item}>{item}</option>

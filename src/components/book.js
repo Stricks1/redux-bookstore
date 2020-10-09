@@ -18,6 +18,22 @@ const Book = ({ book, remove }) => {
           <button type="button" className="book-buttons">Edit</button>
         </div>
       </div>
+      <div className="d-flex-row-center m-right-147">
+        <div className="d-flex-row-center complete-container">
+          <div className="oval-1" />
+          <div className="d-flex-column">
+            <span className="perc-book">64%</span>
+            <span className="span-book-c">Completed</span>
+          </div>
+        </div>
+        <div>
+          <div className="d-flex-column">
+            <span className="update-text">CURRENT CHAPTER</span>
+            <span className="current-chapter">Chapter 17</span>
+            <span className="update-progress">UPDATE PROGRESS</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
