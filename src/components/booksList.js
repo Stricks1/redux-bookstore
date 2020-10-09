@@ -9,19 +9,19 @@ const mapStateToProps = state => ({
   filter: state.filter,
 });
 
-const mapDispatchToProps = dispatch => ({
-  removeBook: book => dispatch(RemoveBook(book)),
-  changeFilter: category => dispatch(ChangeFilter(category)),
-});
+const mapDispatchToProps = {
+  RemoveBook,
+  ChangeFilter,
+};
 
 const booksList = ({
-  books, filter, removeBook, changeFilter,
+  books, filter, RemoveBook, ChangeFilter,
 }) => {
   const handleRemoveBook = book => {
-    removeBook(book);
+    RemoveBook(book);
   };
   const handleFilterChange = category => {
-    changeFilter(category);
+    ChangeFilter(category);
   };
 
   return (
