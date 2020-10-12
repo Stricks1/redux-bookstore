@@ -6,19 +6,17 @@
 # redux-bookstore
 On this project, we practice a simple Redux app. We create a bookstore, this project is split into different milestones replicating a real-world project
 
+![screenshot](https://user-images.githubusercontent.com/36812672/95636721-6fda2f80-0a55-11eb-83f6-4a8a29165180.png)
+
+
 ## Table of Contents
 
-* [Live Demo](#demo)
 * [Installation](#installation)
 * [Built With](#built-with)
 * [Contributing](#contributing)
 * [Acknowledgments](#acknowledgments)
 * [Authors](#author)
 * [License](#license)
-
-
-## Live Demo
-
 
 
 ## Installation
@@ -36,7 +34,7 @@ Run `npm install` and after `npm run build` in your terminal.
 - Redux
 - HTML
 - CSS
-- Heroku
+
 
 ## Contributing
 

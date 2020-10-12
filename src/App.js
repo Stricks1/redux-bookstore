@@ -1,12 +1,16 @@
 import React from 'react';
-import BooksList from './components/booksList';
-import BooksForm from './components/booksForm';
+import BooksList from './containers/booksList';
+import BooksForm from './containers/booksForm';
+import './index.css';
 
 function App() {
   return (
     <div className="App">
-      <BooksList />
-      <BooksForm />
+      <div className="d-flex-column-center">
+        <BooksList />
+        <hr className="line" />
+        <BooksForm />
+      </div>
     </div>
   );
 }
