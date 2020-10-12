@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RemoveBook, ChangeFilter } from '../actions';
-import Book from './book';
-import CategoryFilter from './CategoryFilter';
+import Book from '../components/book';
+import CategoryFilter from '../components/CategoryFilter';
 
 const mapStateToProps = state => ({
   books: state.books,

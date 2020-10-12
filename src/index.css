@@ -297,6 +297,11 @@ code {
   padding-right: 0;
 }
 
+.book-buttons:hover {
+  cursor: pointer;
+  color: orange;
+}
+
 .lateral-border {
   border-left: solid 1px #e8e8e8;
   border-right: solid 1px #e8e8e8;

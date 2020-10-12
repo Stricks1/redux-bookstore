@@ -6,7 +6,7 @@ function books(state = [], action) {
       return [...state, action.book];
 
     case REMOVE_BOOK:
-      return [...state.filter(item => item.id !== action.book.id)];
+      return state.filter(item => item.id !== action.book.id);
     default:
       return state;
   }
