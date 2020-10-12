@@ -10,13 +10,11 @@ const Book = ({ book, remove }) => {
         <div className="category">{category}</div>
         <div className="title">{title}</div>
         <div className="author">Author Fullname</div>
-        <div className="d-flex-row-center mt-25">
-          <button type="button" className="book-buttons">Comments</button>
-          <div className="lateral-border">
-            <button type="button" onClick={() => remove(book)} className="book-buttons">Remove</button>
-          </div>
-          <button type="button" className="book-buttons">Edit</button>
-        </div>
+        <ul className="d-flex-row-center mt-25 without-icons">
+          <li><button type="button" className="book-buttons">Comments</button></li>
+          <li className="lateral-border"><button type="button" onClick={() => remove(book)} className="book-buttons">Remove</button></li>
+          <li><button type="button" className="book-buttons">Edit</button></li>
+        </ul>
       </div>
       <div className="d-flex-row-center m-right-147">
         <div className="d-flex-row-center complete-container">

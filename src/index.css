@@ -336,3 +336,8 @@ code {
 .m-right-147 {
   margin-right: 147px;
 }
+
+.without-icons {
+  list-style-type: none;
+  padding-left: 0;
+}
